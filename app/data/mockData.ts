@@ -182,6 +182,61 @@ const turmas = {
   }
 };
 
+export const professores = [
+  { nome: 'Prof. Silva', materia: 'Matemática', turmas: '3º A, 3º B', media: 8.7, satisfacao: 4.8 },
+  { nome: 'Prof. Santos', materia: 'Português', turmas: '3º A, 3º C', media: 8.2, satisfacao: 4.9 },
+  { nome: 'Prof. Oliveira', materia: 'Física', turmas: '3º B, 3º C', media: 7.9, satisfacao: 4.7 },
+  { nome: 'Prof. Costa', materia: 'História', turmas: '3º A, 3º B, 3º C', media: 8.5, satisfacao: 4.9 },
+  { nome: 'Prof. Lima', materia: 'Química', turmas: '3º A, 3º C', media: 8.0, satisfacao: 4.6 },
+];
+
+export const materias = [
+  { materia: 'Matemática', nota: 8.5, emoji: '🧮' },
+  { materia: 'Português', nota: 7.8, emoji: '📚' },
+  { materia: 'Física', nota: 7.2, emoji: '⚛️' },
+  { materia: 'História', nota: 8.1, emoji: '🏛️' },
+  { materia: 'Química', nota: 7.5, emoji: '🧪' },
+];
+
+export const rankingAlunos = [
+  { nome: 'Ana Clara', pontos: 980, turma: '3º A', medalha: '🥇' },
+  { nome: 'Pedro Henrique', pontos: 945, turma: '3º B', medalha: '🥈' },
+  { nome: 'Mariana Silva', pontos: 920, turma: '3º A', medalha: '🥉' },
+  { nome: 'Lucas Martins', pontos: 910, turma: '3º C', medalha: '4' },
+  { nome: 'Juliana Costa', pontos: 895, turma: '3º B', medalha: '5' },
+];
+
+export const atividades = [
+  { 
+    tipo: 'prova', 
+    titulo: 'Prova de Matemática', 
+    turma: '3º A', 
+    data: '2 horas atrás',
+    icon: '📝'
+  },
+  { 
+    tipo: 'tarefa', 
+    titulo: 'Tarefa de Português', 
+    turma: '3º B', 
+    data: 'Ontem',
+    icon: '📚'
+  },
+  { 
+    tipo: 'evento', 
+    titulo: 'Reunião de Pais', 
+    turma: 'Geral', 
+    data: '2 dias atrás',
+    icon: '📅'
+  },
+  { 
+    tipo: 'aviso', 
+    titulo: 'Feriado Escolar', 
+    turma: 'Geral', 
+    data: '3 dias atrás',
+    icon: '📢'
+  },
+];
+
 export const mockTurmas = Object.keys(turmas) as Array<keyof typeof turmas>;
 export const mockPeriodos = ['Esta Semana', 'Últimas 4 Semanas', 'Este Mês'];
 export const mockMaterias = ['Todas as Matérias', 'Matemática', 'Linguagens', 'C. Natureza', 'C. Humanas'];

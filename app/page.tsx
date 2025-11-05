@@ -200,7 +200,7 @@ export default function ProfessorDashboard() {
 
         {/* Padrões de Resposta */}
         <div className="p-6 rounded-lg shadow">
-          <h2 className="text-lg font-semibold mb-4">Padrões de Resposta</h2>
+          <h2 className="text-lg font-semibold text-gray-800 mb-4">Padrões de Resposta</h2>
           <div className="space-y-3">
             {padroesResposta.map((item, index) => (
               <div key={index} className="flex items-center justify-between">

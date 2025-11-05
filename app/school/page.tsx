@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { professores, materias, rankingAlunos, atividades } from '../data/mockData';
 
 export default function PainelInstitucional() {
   const [serie, setSerie] = useState("Todas as Séries");
@@ -156,21 +157,14 @@ export default function PainelInstitucional() {
         {/* Gráfico de Desempenho por Matéria */}
         <div className="lg:col-span-2 bg-white rounded-xl p-6 shadow-sm border border-gray-100">
           <h3 className="font-semibold text-lg mb-4">Desempenho por Matéria</h3>
-          <div className="h-64 flex items-end gap-4">
-            {[
-              { materia: 'Matemática', nota: 8.5, color: 'bg-blue-500' },
-              { materia: 'Português', nota: 7.8, color: 'bg-green-500' },
-              { materia: 'Física', nota: 7.2, color: 'bg-purple-500' },
-              { materia: 'História', nota: 8.1, color: 'bg-yellow-500' },
-              { materia: 'Química', nota: 7.5, color: 'bg-red-500' },
-            ].map((item, index) => (
-              <div key={index} className="flex-1 flex flex-col items-center">
-                <div 
-                  className={`w-full ${item.color} rounded-t-md`}
-                  style={{ height: `${item.nota * 10}%` }}
-                ></div>
-                <span className="text-xs mt-2">{item.materia}</span>
-                <span className="text-xs font-medium">{item.nota}</span>
+          <div className="h-64 flex items-center justify-around">
+            {materias.map((item, index) => (
+              <div key={index} className="flex flex-col items-center">
+                <span className="text-5xl mb-2" style={{ fontSize: `${item.nota * 8}px` }}>
+                  {item.emoji}
+                </span>
+                <span className="text-sm font-medium mt-2">{item.materia}</span>
+                <span className="text-sm text-gray-600">{item.nota.toFixed(1)}</span>
               </div>
             ))}
           </div>
@@ -186,13 +180,7 @@ export default function PainelInstitucional() {
             </div>
           </div>
           <div className="space-y-4">
-            {[
-              { nome: 'Ana Clara', pontos: 980, turma: '3º A', medalha: '🥇' },
-              { nome: 'Pedro Henrique', pontos: 945, turma: '3º B', medalha: '🥈' },
-              { nome: 'Mariana Silva', pontos: 920, turma: '3º A', medalha: '🥉' },
-              { nome: 'Lucas Martins', pontos: 910, turma: '3º C', medalha: '4' },
-              { nome: 'Juliana Costa', pontos: 895, turma: '3º B', medalha: '5' },
-            ].map((aluno, index) => (
+            {rankingAlunos.map((aluno, index) => (
               <div key={index} className="flex items-center justify-between p-2 hover:bg-gray-50 rounded-lg">
                 <div className="flex items-center">
                   <span className="text-lg mr-3 w-6 h-6 flex items-center justify-center">
@@ -227,13 +215,7 @@ export default function PainelInstitucional() {
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
-              {[
-                { nome: 'Prof. Silva', materia: 'Matemática', turmas: '3º A, 3º B', media: 8.7, satisfacao: 4.8 },
-                { nome: 'Prof. Santos', materia: 'Português', turmas: '3º A, 3º C', media: 8.2, satisfacao: 4.9 },
-                { nome: 'Prof. Oliveira', materia: 'Física', turmas: '3º B, 3º C', media: 7.9, satisfacao: 4.7 },
-                { nome: 'Prof. Costa', materia: 'História', turmas: '3º A, 3º B, 3º C', media: 8.5, satisfacao: 4.9 },
-                { nome: 'Prof. Lima', materia: 'Química', turmas: '3º A, 3º C', media: 8.0, satisfacao: 4.6 },
-              ].map((prof, index) => (
+              {professores.map((prof, index) => (
                 <tr key={index} className="hover:bg-gray-50">
                   <td className="p-4">
                     <div className="flex items-center">
@@ -279,36 +261,7 @@ export default function PainelInstitucional() {
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
         <h3 className="font-semibold text-lg mb-4">Atividades Recentes</h3>
         <div className="space-y-4">
-          {[
-            { 
-              tipo: 'prova', 
-              titulo: 'Prova de Matemática', 
-              turma: '3º A', 
-              data: '2 horas atrás',
-              icon: '📝'
-            },
-            { 
-              tipo: 'tarefa', 
-              titulo: 'Tarefa de Português', 
-              turma: '3º B', 
-              data: 'Ontem',
-              icon: '📚'
-            },
-            { 
-              tipo: 'evento', 
-              titulo: 'Reunião de Pais', 
-              turma: 'Geral', 
-              data: '2 dias atrás',
-              icon: '📅'
-            },
-            { 
-              tipo: 'aviso', 
-              titulo: 'Feriado Escolar', 
-              turma: 'Geral', 
-              data: '3 dias atrás',
-              icon: '📢'
-            },
-          ].map((atividade, index) => (
+          {atividades.map((atividade, index) => (
             <div key={index} className="flex items-start p-3 hover:bg-gray-50 rounded-lg transition-colors">
               <div className="flex items-center justify-center h-10 w-10 rounded-full bg-blue-50 text-blue-600 text-lg mr-3">
                 {atividade.icon}
